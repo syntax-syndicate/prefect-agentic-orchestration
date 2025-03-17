@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { DeleteConfirmationDialog } from "@/components/ui/delete-confirmation-dialog";
 import { Icon } from "@/components/ui/icons";
 import { Typography } from "@/components/ui/typography";
-import { createFakeBlockDocument } from "@/mocks";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { RowSelectionState } from "@tanstack/react-table";
@@ -45,8 +44,10 @@ export const BlocksPage = () => {
 							pageIndex: 0,
 							pageSize: 10,
 						}}
-						onPaginationChange={() => {}}
-						onDelete={() => handleConfirmDelete(createFakeBlockDocument())}
+						onPaginationChange={() => {
+							/** TODO */
+						}}
+						onDelete={() => handleConfirmDelete(Object.keys(rowSelection))}
 					/>
 				)}
 			</div>
@@ -59,7 +60,6 @@ function BlocksPageHeader() {
 	return (
 		<div className="flex gap-2 items-center">
 			<Typography className="font-semibold">Blocks</Typography>
-
 			<Link to="/blocks/catalog">
 				<Button
 					size="icon"

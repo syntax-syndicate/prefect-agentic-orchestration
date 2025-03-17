@@ -28,8 +28,11 @@ export const BlockDocumentCell = ({
 						<Typography className="font-semibold">{name}</Typography>
 					</Link>
 				)}
-				{block_type_name && (
-					<Link to="/blocks/block/$id" params={{ id: id }}>
+				{block_type_name && blockDocument.block_type?.slug && (
+					<Link
+						to="/blocks/catalog/$slug"
+						params={{ slug: blockDocument.block_type.slug }}
+					>
 						<Typography variant="bodySmall" className="text-muted-foreground">
 							{block_type_name}
 						</Typography>
